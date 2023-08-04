@@ -28,10 +28,6 @@ function addItem(e){
   
   itemList.appendChild(li);
 
-  let editButton = document.createElement("button");
-  editButton.textContent = "Edit";
-  list Item.appendChild(editButton);
-
 
 }
 
