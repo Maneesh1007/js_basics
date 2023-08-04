@@ -1,3 +1,10 @@
-let items = document.getElementsByClassName("list-group-item");
-items[2].style.backgroundColor = "green";
-items[2].style.fontWeight = "bold";
+let items = document.getElementsByClassName("list-group-item")
+
+console.log(items)
+
+let ui = document.getElementsByTagName("li")
+
+console.log(ui)
+
+
+
