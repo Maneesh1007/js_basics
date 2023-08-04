@@ -1,36 +1,50 @@
-let itemsList = document.querySelector("#items");
+let form = document.getElementById("addForm");
+let itemList = document.getElementById("items");
 
-console.log(itemsList.parentElement);
+form.addEventListener("submit",addItem);
 
-console.log(itemsList.lastElementChild);
+form.addEventListener("click",removeItem);
 
-console.log(itemsList.previousElementSibling);
+function addItem(e){
+  e.preventDefault();
+  
+  let newItem = document.getElementById("item").value;
+  
+  let li = document.createElement("li");
+  
+  li.className = "list-group-item";
+  
+  li.appendChild(document.createTextNode(newItem));
+  
+  let delbtn = document.createElement("button");
+  
+  delbtn.className = "btn btn-danger btn-sm float-right delete"
+  
+  let delnode = document.createTextNode("X");
+  
+  delbtn.appendChild(delnode);
+  
+  li.appendChild(delbtn);
+  
+  itemList.appendChild(li);
 
-let newDiv = document.createElement('div');
+  let editButton = document.createElement("button");
+  editButton.textContent = "Edit";
+  list Item.appendChild(editButton);
 
-newDiv.className = "hii";
 
-newDiv.id = "hiiii";
+}
 
-newDiv.setAttribute("tittle","hello");
-
-let insertedText = document.createTextNode("HELLo word");
-
-newDiv.appendChild(insertedText);
-
-newDiv.fontSize = "30px"
-
-let h1 = document.querySelector("#header-title");
-
-let container = document.querySelector(".container");
-
-container.insertBefore(newDiv,h1);
-
-let h2 = document.querySelector(".list-group-item");
-
-door = document.querySelector("#items");
-
-door.insertBefore(newDiv,h2);
+function removeItem(e){
+  if (e.target.classList.contains('delete'))
+  {
+    if (confirm('ARE YOU SURE?'))
+    {
+      let li = e.target.parentElement;
+      itemlist.removeChild(li);
+    }
+  }
+}
 
 
 
