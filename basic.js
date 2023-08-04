@@ -1,10 +1,12 @@
-let items = document.getElementsByClassName("list-group-item")
+let item = document.querySelector(".list-group-item:nth-child(2)");
 
-console.log(items)
+item.style.backgroundColor = "green";
 
-let ui = document.getElementsByTagName("li")
+let item1 = document.querySelector(".list-group-item:nth-child(3)");
 
-console.log(ui)
+item1.style.display = "None";
+
+
 
 
 
