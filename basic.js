@@ -1,10 +1,10 @@
-let item = document.querySelector(".list-group-item:nth-child(2)");
+let items = document.querySelectorAll("li");
 
-item.style.backgroundColor = "green";
-
-let item1 = document.querySelector(".list-group-item:nth-child(3)");
-
-item1.style.display = "None";
+for (let i = 0 ;i<items.length;i++){
+    if (i%2==1){
+        items[i].style.backgroundColor = "green";
+    }
+}
 
 
 
