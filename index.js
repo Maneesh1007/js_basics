@@ -33,6 +33,12 @@ form.addEventListener('submit',function(event)
     deletebtn.appendChild(document.createTextNode("Delete"));
     
     form.appendChild(deletebtn);
+
+    let editBtn = document.createElement("button");
+
+    editBtn.appendChild(document.createTextNode("Edit"));
+
+    form.appendChild(editBtn);
     
     const nameBreak = document.createElement("br");
     form.appendChild(nameBreak);
@@ -42,8 +48,26 @@ form.addEventListener('submit',function(event)
       localStorage.removeItem(userDetails["email"]);
 
       form.removeChild(deletebtn);
+      form.removeChild(editBtn);
       form.removeChild(nameBreak);
       form.removeChild(label);
+    })
+
+    editBtn.addEventListener("click",function popupelements(event){
+
+      document.getElementById("fname").value = userDetails["name"];
+      document.getElementById("Email").value = userDetails["email"];
+      document.getElementById("phoneno").value = userDetails["phone"];
+      localStorage.removeItem(userDetails["email"]);
+
+      form.removeChild(editBtn);
+      form.removeChild(deletebtn);
+      form.removeChild(nameBreak);
+      form.removeChild(label);
+
+
+
+
     })
   
 
