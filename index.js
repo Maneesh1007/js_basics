@@ -15,9 +15,13 @@ form.addEventListener('submit',function(event)
         calltime : calltime,
 
     };
-    let userDetailsJson = JSON.stringify(userDetails);
+    let existingUserDetailsJSON = localStorage.getItem('userDetails');
+  let existingUserDetails = existingUserDetailsJSON ? JSON.parse(existingUserDetailsJSON) : [];
 
-    
+  // Add the new user object to the array
+  existingUserDetails.push(userDetails);
 
-    localStorage.setItem('userDetails',userDetailsJson);
+  // Convert the updated array to JSON and store it back in local storage
+  let updatedUserDetailsJSON = JSON.stringify(existingUserDetails);
+  localStorage.setItem('userDetails', updatedUserDetailsJSON);
 })
