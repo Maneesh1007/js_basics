@@ -15,33 +15,39 @@ form.addEventListener('submit',function(event)
        
 
     };
-    let existingUserDetailsJSON = localStorage.getItem('userDetails');
-  let existingUserDetails = existingUserDetailsJSON ? JSON.parse(existingUserDetailsJSON) : [];
-
-  //console.log(userDetails["name"]+" "+userDetails["email"]+" "+userDetails["phone"]);
-
-  // Add the new user object to the array
-  existingUserDetails.push(userDetails);
-
-  // Convert the updated array to JSON and store it back in local storage
-  let updatedUserDetailsJSON = JSON.stringify(existingUserDetails);
-  localStorage.setItem('userDetails', updatedUserDetailsJSON);
-
-  let newNode = userDetails["name"]+" --- "+userDetails["email"]+" --- "+userDetails["phone"];
+    
+    localStorage.setItem(userDetails["email"], JSON.stringify(userDetails));
+    let newNode = userDetails["name"]+" --- "+userDetails["email"]+" --- "+userDetails["phone"];
 
   
 
-  let label = document.createElement("label");
+    let label = document.createElement("label");
+    
+    label.appendChild(document.createTextNode(newNode));
+      
+    
+    form.appendChild(label);
+    
+    let deletebtn = document.createElement("button");
+    
+    deletebtn.appendChild(document.createTextNode("Delete"));
+    
+    form.appendChild(deletebtn);
+    
+    const nameBreak = document.createElement("br");
+    form.appendChild(nameBreak);
+    
 
-  label.appendChild(document.createTextNode(newNode));
-  
+    deletebtn.addEventListener('click',function removeItem(event){
+      localStorage.removeItem(userDetails["email"]);
 
-  form.appendChild(label);
-
-  const nameBreak = document.createElement("br");
-  form.appendChild(nameBreak);
-
+      form.removeChild(deletebtn);
+      form.removeChild(nameBreak);
+      form.removeChild(label);
+    })
   
 
 })
+
+
 
