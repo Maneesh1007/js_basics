@@ -77,7 +77,10 @@
         document.getElementById("fname").value = userDetails["name"];
         document.getElementById("Email").value = userDetails["email"];
         document.getElementById("phoneno").value = userDetails["phone"];
-        localStorage.removeItem(userDetails["email"]);
+        //localStorage.removeItem(userDetails["email"]);
+        axios.delete("https://crudcrud.com/api/8e3154b2c44e43078fec8122b2130e18/appointmentData/"+userDetails["_id"])
+          .then(response => console.log(response))
+          .catch(err => console.log(err))
 
         form.removeChild(editBtn);
         form.removeChild(deleteBtn);
