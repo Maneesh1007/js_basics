@@ -1,11 +1,16 @@
 
     document.addEventListener("DOMContentLoaded", function () {
       // Load existing data from local storage and display it on the screen
-      for (let i = 0; i < localStorage.length; i++) {
-        const key = localStorage.key(i);
-        const userDetails = JSON.parse(localStorage.getItem(key));
-        displayUserDetails(userDetails);
-      }
+      axios.get("https://crudcrud.com/api/8e3154b2c44e43078fec8122b2130e18/appointmentData")
+        .then(response => {
+          for (let i =0;i<response.data.length;i++){
+            displayUserDetails(response.data[i])
+
+          }
+
+        })
+        .catch(err => console.log(ReferenceError))
+      
     });
 
     const form = document.getElementById("userform");
@@ -58,7 +63,10 @@
       form.appendChild(nameBreak);
 
       deleteBtn.addEventListener("click", function removeItem(event) {
-        localStorage.removeItem(userDetails["email"]);
+        //localStorage.removeItem(userDetails["email"]);
+        axios.delete("https://crudcrud.com/api/8e3154b2c44e43078fec8122b2130e18/appointmentData/"+userDetails["_id"])
+          .then(response => console.log(response))
+          .catch(err => console.log(err))
         form.removeChild(deleteBtn);
         form.removeChild(editBtn);
         form.removeChild(nameBreak);
