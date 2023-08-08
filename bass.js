@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", function () {
         orderDisplay.classList.add("order-display");
 
         const orderInfo = document.createElement("p");
-        orderInfo.textContent = `Price: $${price.toFixed(2)}, Dish: ${dish}`;
+        orderInfo.textContent = `Price: ${price.toFixed(2)}, Dish: ${dish}`;
         orderDisplay.appendChild(orderInfo);
 
         // Create delete button
