@@ -23,7 +23,13 @@
       };
 
       // Save the data to local storage
-      localStorage.setItem(userDetails["email"], JSON.stringify(userDetails));
+      //localStorage.setItem(userDetails["email"], JSON.stringify(userDetails));
+
+      axios.post("https://crudcrud.com/api/8e3154b2c44e43078fec8122b2130e18/appointmentData",userDetails)
+        .then(response =>{
+          console.log(response)
+        })
+        .catch(err =>console.log(err))
 
       // Display the user details on the screen
       displayUserDetails(userDetails);
