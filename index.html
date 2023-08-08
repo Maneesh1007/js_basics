@@ -9,18 +9,44 @@
     
 
       <form id="userform">
-        <label for="fname">NAME:</label>
-        <input type="text" id="fname" name="fname" required >
-        <label for="Email">EMAIL:</label>
-        <input type="email" id="Email" name="Email" required>
-        <label for="phoneno">PHONE</label>
-        <input type="number" id="phoneno" name="phoneno" required>
-        <button>submit</button><br><br>
+        <label for="price">Choose Price:</label>
+        <input type="number" id="price" name="price" required >
+        <label for="dish">Choose Dish:</label>
+        <input type="text" id="dish" name="dish" required>
+        <label for="tableSelect">Choose a Table:</label>
+        <select id="tableSelect" name="tableSelect" required>
+          <option value="Table1">Table1</option>
+          <option value="Table2">Table2</option>
+          <option value="Table3">Table3</option>
+        </select>
+
+        <button>AddtoBill</button><br><br>
 
       </form>
+
+      <h2>Orders</h2>
+
+      <div class="restaurant-layout">
+        <div class="table" id="Table1">
+            <span class="table-number">Table 1</span><br><br>
+            <!-- Other table content -->
+        </div>
+        <div class="table" id="Table2">
+            <span class="table-number">Table 2</span><br><br>
+            
+            <!-- Other table content -->
+        </div>
+        <div class="table" id="Table3">
+          <span class="table-number">Table 3</span><br><br>
+          <!-- Other table content -->
+      </div>
+    </div>
+    
+
+
       <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
-      <script src="project.js"></script>
+      <script src="bass.js"></script>
     
 </body>
 </html>
